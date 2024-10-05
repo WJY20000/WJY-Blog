@@ -1412,55 +1412,6 @@
     <!--结束-->
     <img class="markdown" src="https://tool.lu/netcard/">
     <p>Version 1.0</p>
-    <div class="popup-container" id="popupContainer">
-        <div class="popup-content">
-            <p>你和作者WJY的关系是?</p>
-            <button onclick="recordAnswer('朋友')">朋友</button>
-            <button onclick="recordAnswer('陌生人')">陌生人</button>
-        </div>
-    </div>
-    <div class="popup-container" id="passwordContainer">
-        <div class="popup-content">
-            <p>请输入密码查看结果：</p> <input type="password" id="passwordInput"> <button onclick="checkPassword()">确认</button>
-        </div>
-    </div>
-    <script>
-        window.onload = function () {        // Display a welcome message        
-            alert('Welcome to WJY\'s Blog!');
-            //var audio = document.getElementById('bgm'); //没有id为bgm的<audio>元素呢 这里注释掉吧
-            //audio.play();        // Show popup after 3 seconds     
-            setTimeout(function () { document.getElementById('popupContainer').style.display = 'block'; }, 3000);
-        };
-        function recordAnswer(answer) {
-            document.getElementById('popupContainer').style.display = 'none';
-            console.log('User chose:', answer);
-            document.getElementById('passwordContainer').style.display = "block"; //接下来展示密码框
-        }
-        function checkPassword() {
-            var passwordInput = document.getElementById('passwordInput').value;
-            if (passwordInput === '775521') {
-                showResults();
-            } else {
-                alert('密码不正确，请重新输入。');
-            }
-        }
-        function showResults() {
-            /*var resultsContainer = document.getElementById('results'); 
-            var resultDataContainer = document.getElementById('resultData'); 
-            resultDataContainer.innerHTML = '';        // Display results        
-            if (choices.length === 0){ 
-                resultDataContainer.innerHTML = '<p>还没有用户选择数据。</p>'; 
-            } else { 
-                var counts = {}; 
-                choices.forEach(function (choice) {counts[choice] = (counts[choice] || 0) + 1; }); 
-                var resultsHtml = '<ul>'; 
-                for (var choice in counts) {
-                    resultsHtml += '<li>' + choice + ': ' + counts[choice] + '</li>'; 
-                } 
-                resultsHtml += '</ul>'; 
-                resultDataContainer.innerHTML = resultsHtml; 
-            }        // Show results container        
-            resultsContainer.classList.remove('hidden');*/
 
             //results应该是要是什么数据
             //但是choices没有定义 到底是要展示什么数据呢?
