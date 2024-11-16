@@ -14,31 +14,6 @@
             padding: 20px;
             line-height: 1.6;
         }
-       .audio-player {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 300px;
-            text-align: center;
-        }
-        .audio-player button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .audio-player button:hover {
-            background-color: #45a049;
-        }
-        .audio-player progress {
-            width: 100%;
-            height: 10px;
-            margin-top: 10px;
-        }
         .container {
             width: 80%;
             margin: 0 auto;
@@ -1413,39 +1388,15 @@
     </div>
     <img src="./1.jpg" alt="ShangHai">
     <div class="separator"></div> <!--分割线由CSS实现 里面什么也不用填-->
-
     <!--Markdown 正文 -->
+        <div>
+        <p>庆祝11.6物理培优！！！</p>
+    </div>
     <article class="markdown-body">
     <h3 class="atx" >Have a good rest while admiring the scenery</h3> <!--内容要放在里面呢 ID是给选择器用的-->
     <img id="pexels-image" style="width: auto;height: auto;" alt="Pexels Image">
     <p class="markdown" id="image-source" style="font-size: smaller; color: #696969;"></p>
     <script>
-            const audio = document.getElementById('audio');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const progressBar = document.getElementById('progressBar');
-
-    // 控制播放和暂停
-    playPauseBtn.addEventListener('click', () => {
-        if (audio.paused) {
-            audio.play();
-            playPauseBtn.textContent = '暂停';
-        } else {
-            audio.pause();
-            playPauseBtn.textContent = '播放';
-        }
-    });
-
-    // 更新进度条
-    audio.addEventListener('timeupdate', () => {
-        const progress = (audio.currentTime / audio.duration) * 100;
-        progressBar.value = progress;
-    });
-
-    // 自动播放时更新进度条
-    audio.addEventListener('loadeddata', () => {
-        audio.play();
-        playPauseBtn.textContent = '暂停';
-    });
     async function fetchRandomImage() {
         const apiKey = 'gzvhicFNUflf4fm3rVjcBPwBMj1Ako9yOjroxZ5poi6xZzMeFvzRrWCO'; // 替换为我的 Pexels API 密钥
         const url = 'https://api.pexels.com/v1/search?query=nature&per_page=1&page=' + Math.floor(Math.random() * 100);
@@ -1469,9 +1420,6 @@
     </script>
     </article>
     <!--结束-->
-    <div>
-        <p>庆祝11.6物理培优！！！</p>
-    </div>
     <img class="markdown" src="https://tool.lu/netcard/">
     <p>Version 1.0</p>
 
