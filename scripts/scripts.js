@@ -1,59 +1,35 @@
-// Clock Functionality
+const formatSwitchBtn = document.querySelector('.format-switch-btn');
+const timeDisplay = document.querySelector('.time');
+let is24HourFormat = false;
+
+formatSwitchBtn.addEventListener('click', function() {
+    is24HourFormat = !is24HourFormat;
+    formatSwitchBtn.textContent = is24HourFormat ? '24hr' : '12hr';
+    updateClock();
+});
+
 function updateClock() {
-    const today = new Date();
-    let hours = today.getHours();
-    const minutes = today.getMinutes();
-    const seconds = today.getSeconds();
-    const formatSwitch = document.querySelector(".format-switch-btn");
+    const date = new Date();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+    const period = hours >= 12 ? 'PM' : 'AM';
 
-    let period = hours >= 12 ? "PM" : "AM";
-    if (formatSwitch.getAttribute("data-format") === "12") {
-        hours = hours % 12 || 12; // Convert to 12-hour format
-    }
+    const displayHours = is24HourFormat ? hours : (hours % 12) || 12;
+    const displayMinutes = minutes < 10 ? '0' + minutes : minutes;
+    const displaySeconds = seconds < 10 ? '0' + seconds : seconds;
 
-    document.querySelector(".hours").textContent = String(hours).padStart(2, "0");
-    document.querySelector(".minutes").textContent = String(minutes).padStart(2, "0");
-    document.querySelector(".seconds").textContent = String(seconds).padStart(2, "0");
-    document.querySelector(".period").textContent = period;
+    const hourElement = document.querySelector('.hours');
+    const minuteElement = document.querySelector('.minutes');
+    const secondElement = document.querySelector('.seconds');
+    const periodElement = document.querySelector('.period');
+
+    hourElement.textContent = displayHours;
+    minuteElement.textContent = displayMinutes;
+    secondElement.textContent = displaySeconds;
+    periodElement.textContent = is24HourFormat ? '' : period;
+
+    requestAnimationFrame(updateClock);
 }
 
-// Calendar Functionality
-function updateDate() {
-    const today = new Date();
-    const dayNum = today.getDate();
-    const dayName = today.toLocaleString("default", { weekday: "long" });
-    const monthName = today.toLocaleString("default", { month: "short" });
-
-    document.querySelector(".month-name").textContent = monthName;
-    document.querySelector(".day-name").textContent = dayName;
-    document.querySelector(".day-num").textContent = dayNum;
-}
-
-// Format Toggle
-document.querySelector(".format-switch-btn").addEventListener("click", function () {
-    this.classList.toggle("active");
-    const currentFormat = this.getAttribute("data-format");
-    this.setAttribute("data-format", currentFormat === "12" ? "24" : "12");
-});
-
-// Dot Menu Toggle
-document.querySelector(".dot-menu-btn").addEventListener("click", () => {
-    document.querySelector(".dot-menu").classList.toggle("active");
-});
-
-// Fetch Random Image from Pexels API
-async function fetchRandomImage() {
-    const apiKey = "gzvhicFNUflf4fm3rVjcBPwBMj1Ako9yOjroxZ5poi6xZzMeFvzRrWCO";
-    const response = await fetch("https://api.pexels.com/v1/search?query=nature&per_page=1", {
-        headers: { Authorization: apiKey }
-    });
-    const data = await response.json();
-    const photo = data.photos[0];
-
-    if (photo) {
-        document.getElementById("pexels-image").src = photo.src.original;
-        document.getElementById("image-source").innerHTML = `图片来源: <a href="${photo.url}" target="_blank">Pexels</a>`;
-    }
-}
-
-//
+updateClock();
