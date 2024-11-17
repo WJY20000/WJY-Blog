@@ -1,0 +1,146 @@
+/* General Styles */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+}
+
+.container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Floating Text */
+.floating-text {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    font-size: 24px;
+    color: red;
+    animation: float 5s infinite linear, colorChange 10s infinite alternate;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-50px); }
+}
+
+@keyframes colorChange {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: green; }
+}
+
+/* Digital Clock */
+.digital-clock {
+    position: relative;
+    background: #2e2e44;
+    color: #fff;
+    padding: 20px 45px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(14, 21, 37, 0.8);
+}
+
+.digital-clock:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, #24ff6d, #2f93f1, #ff5e9a);
+    filter: blur(40px);
+    z-index: -1;
+    animation: glowing 10s ease infinite;
+}
+
+@keyframes glowing {
+    0%, 100% { background-position: 0 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Clock Elements */
+.time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hours, .minutes {
+    font-size: 6.5em;
+    font-weight: 600;
+    background: -webkit-linear-gradient(90deg, #634dff, #5fd4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dots {
+    font-size: 5em;
+    color: #929292;
+}
+
+.period, .seconds {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+/* Calendar */
+.calender {
+    margin-top: 10px;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+/* Dot Menu */
+.dot-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #353e54;
+    padding: 10px 20px;
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s ease;
+}
+
+.dot-menu.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.format-switch-btn {
+    width: 35px;
+    height: 15px;
+    background: #485470;
+    border-radius: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+.format-switch-btn:before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #ff5e9a;
+    border-radius: 50%;
+    transition: 0.4s ease;
+}
+
+.format-switch-btn.active:before {
+    background: #0bff8d;
+    transform: translateX(20px);
+}
