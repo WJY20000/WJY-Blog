@@ -1,52 +1,43 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WJY's Blog - A modern and elegant digital experience with a clock, music player, and beautiful nature images.">
     <title>WJY's Blog</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="scripts.js"></script>
+    <!-- 引入样式文件 -->
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
+
 <body>
     <div class="container">
         <h2>WJY's Blog</h2>
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="https://music.163.com/outchain/player?type=2&id=531295576&auto=1&height=66"></iframe>
-        <div class="floating-text">My Love For You Never Dies!</div>
+        <!-- 嵌入音乐 -->
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" 
+                src="https://music.163.com/outchain/player?type=2&id=531295576&auto=1&height=66">
+        </iframe>
+        <div class="floating-text">My Love For Music Never Dies!</div>
     </div>
+    <img src="./assets/1.jpg" alt="ShangHai">
+    <div class="separator"></div> <!-- 分割线由CSS实现 -->
     
-    <!-- Digital Clock Section -->
-    <div class="digital-clock">
-        <i class="fas fa-ellipsis-v dot-menu-btn"></i>
-        <ul class="dot-menu">
-            <li class="menu-item">
-                <span class="clock-format-text">24-Hour Format</span>
-                <div class="format-switch-btn" data-format="12"></div>
-            </li>
-        </ul>
-        <div class="time">
-            <span class="hours">00</span>
-            <span class="dots">:</span>
-            <span class="minutes">00</span>
-            <div class="right-side">
-                <span class="period">AM</span>
-                <span class="seconds">00</span>
-            </div>
-        </div>
-        <div class="calender">
-            <span class="month-name">Month</span>,
-            <span class="day-name">Day</span>
-            <span class="day-num">00</span>
-        </div>
+    <!-- Markdown 正文 -->
+    <div>
+        <p>庆祝11.6物理培优！！！<br />
+            Dearest δ<br />
+            I make it……
+        </p>
     </div>
-
-    <!-- Random Nature Image Section -->
     <article class="markdown-body">
-        <h3>Have a good rest while admiring the scenery</h3>
+        <h3 class="atx">Have a good rest while admiring the scenery</h3>
         <img id="pexels-image" style="width: auto; height: auto;" alt="Pexels Image">
-        <p id="image-source" style="font-size: smaller; color: #696969;"></p>
+        <p class="markdown" id="image-source" style="font-size: smaller; color: #696969;"></p>
     </article>
-<link rel="stylesheet" href="styles/styles.css">
-<script defer src="scripts/scripts.js"></script>
+    
+    <p>Version 1.0</p>
+
+    <!-- 引入脚本文件 -->
+    <script defer src="scripts/scripts.js"></script>
 </body>
+
 </html>
