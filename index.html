@@ -1,43 +1,77 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WJY's Blog</title>
-    <!-- 引入优化后的样式文件 -->
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
-
 <body>
     <div class="container">
         <h2>WJY's Blog</h2>
-        <!-- 嵌入音乐 -->
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" 
-                src="https://music.163.com/outchain/player?type=2&id=531295576&auto=1&height=66">
-        </iframe>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="https://music.163.com/outchain/player?type=2&id=531295576&auto=1&height=66"></iframe>
         <div class="floating-text">My Love For Music Never Dies!</div>
     </div>
-    <img src="./assets/1.jpg" alt="ShangHai">
-    <div class="separator"></div> <!-- 分割线由CSS实现 -->
-    
-    <!-- Markdown 正文 -->
-    <div>
-        <p>庆祝11.6物理培优！！！<br />
-            Dearest δ<br />
-            I make it……
-        </p>
+
+    <!-- Clock above the image -->
+    <div class="digital-clock">
+        <i class="fas fa-ellipsis-v uil uil-ellipsis-v dot-menu-btn" style="color:#fff" id="active-menu"></i>
+        <ul class="dot-menu" id="active-menu">
+            <li class="menu-item">
+                <span class="clock-format-text">24-Hour Format</span>
+                <div class="format-switch-btn" date-format="12"></div>
+            </li>
+        </ul>
+        <div class="time">
+            <span class="hours">00</span>
+            <span class="dots">:</span>
+            <span class="minutes">00</span>
+            <div class="right-side">
+                <span class="period">AM/PM</span>
+                <span class="seconds">00</span>
+            </div>
+        </div>
+        <div class="calender">
+            <span class="month-name">Month</span>,
+            <span class="day-name">Day</span>
+            <span class="day-num">00</span>
+        </div>
     </div>
+
+    <img src="./assets/1.jpg" alt="ShangHai">
+    <div class="separator"></div>
+
     <article class="markdown-body">
         <h3 class="atx">Have a good rest while admiring the scenery</h3>
-        <img id="pexels-image" style="width: auto; height: auto;" alt="Pexels Image">
+        <img id="pexels-image" style="width: auto;height: auto;" alt="Pexels Image">
         <p class="markdown" id="image-source" style="font-size: smaller; color: #696969;"></p>
+        <script>
+            async function fetchRandomImage() {
+                const apiKey = 'gzvhicFNUflf4fm3rVjcBPwBMj1Ako9yOjroxZ5poi6xZzMeFvzRrWCO'; // Pexels API key
+                const url = 'https://api.pexels.com/v1/search?query=nature&per_page=1&page=' + Math.floor(Math.random() * 100);
+
+                const response = await fetch(url, {
+                    headers: {
+                        Authorization: apiKey
+                    }
+                });
+                const data = await response.json();
+                const photo = data.photos[0];
+
+                if (photo) {
+                    document.getElementById('pexels-image').src = photo.src.original;
+                    document.getElementById('image-source').innerHTML = '图片来源: <a href="' + photo.url + '">Pexels</a>';
+                } else {
+                    document.getElementById('image-source').innerText = '未找到图片';
+                }
+            }
+            fetchRandomImage();
+        </script>
     </article>
-    
+
+    <img class="markdown" src="https://tool.lu/netcard/">
     <p>Version 1.0</p>
 
-    <!-- 引入优化后的脚本文件 -->
-    <script defer src="./scripts/scripts.js"></script>
+    <script src="./scripts/scripts.js"></script>
 </body>
-
 </html>
