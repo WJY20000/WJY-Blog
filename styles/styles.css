@@ -48,8 +48,7 @@ p:not(.markdown-body) {
 
 .floating-text {
     position: absolute;
-    top: 0;
-    right: 10%;
+    right: 35%;
     font-size: 24px;
     color: red;
     animation: float 5s infinite linear, colorChange 10s infinite alternate;
@@ -75,7 +74,7 @@ p:not(.markdown-body) {
     position: relative;
     color: #fff;
     background: #2e2e44;
-    width: 280px;  /* Shrink clock */
+    width: 521px;  /* Shrink clock */
     padding: 10px 25px;
     box-shadow: 0 5px 25px rgba(14, 21, 37, 0.8);
     border-radius: 10px;
@@ -154,7 +153,7 @@ p:not(.markdown-body) {
 
 .period,
 .seconds {
-    font-size: 1.2em;
+    font-size: 4.2em;
     font-weight: 500;
 }
 
@@ -175,7 +174,7 @@ p:not(.markdown-body) {
 .calender {
     justify-content: center;
     align-items: center;
-    font-size: 1.3em;
+    font-size: 2.3em;
     font-weight: 500;
     margin-top: 20px;
 }
