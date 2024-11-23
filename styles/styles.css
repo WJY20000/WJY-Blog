@@ -25,17 +25,17 @@ h2 {
     margin-bottom: 20px;
 }
 
-img:not(.markdown) {
+img:not(.markdown-body) {
     width: 100%;
     max-width: 100%;
     height: auto;
 }
 
-p:not(.markdown) {
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+p:not(.markdown-body) {
+   /*! background-color: #fff; */
+   /*! padding: 20px; */
+   /*! box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+   /*! margin-top: 20px; */
 }
 
 .separator {

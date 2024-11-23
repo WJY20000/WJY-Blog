@@ -26,14 +26,20 @@ function updateClock() {
     const minuteElement = document.querySelector('.minutes');
     const secondElement = document.querySelector('.seconds');
     const periodElement = document.querySelector('.period');
+    const monthElement = document.querySelector('.month-name');
+    const dateElement = document.querySelector('.day-name');
+    
 
-    if (hourElement && minuteElement && secondElement && periodElement) {
+    if (hourElement && minuteElement && secondElement && periodElement && monthElement && dateElement) {
         hourElement.textContent = displayHours;
         minuteElement.textContent = displayMinutes;
         secondElement.textContent = displaySeconds;
+        monthElement.textContent = date.getMonth();
+        dateElement.textContent = date.getDate();
         periodElement.textContent = is24HourFormat ? '' : period;
     }
 }
+
 
 setInterval(updateClock, 1000);
 
