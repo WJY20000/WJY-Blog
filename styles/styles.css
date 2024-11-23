@@ -74,7 +74,7 @@ p:not(.markdown-body) {
     position: relative;
     color: #fff;
     background: #2e2e44;
-    width: 521px;  /* Shrink clock */
+    width: 5210px;  /* Shrink clock */
     padding: 10px 25px;
     box-shadow: 0 5px 25px rgba(14, 21, 37, 0.8);
     border-radius: 10px;
