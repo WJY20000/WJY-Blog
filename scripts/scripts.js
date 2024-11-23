@@ -2,10 +2,13 @@ const formatSwitchBtn = document.querySelector('.format-switch-btn');
 const timeDisplay = document.querySelector('.time');
 let is24HourFormat = false;
 
-formatSwitchBtn.addEventListener('click', function() {
+// 初始化按钮文本
+formatSwitchBtn.textContent = is24HourFormat ? '24hr' : '12hr';
+
+formatSwitchBtn.addEventListener('click', function () {
     is24HourFormat = !is24HourFormat;
     formatSwitchBtn.textContent = is24HourFormat ? '24hr' : '12hr';
-    updateClock();
+    updateClock(); // 切换格式后立即更新显示
 });
 
 function updateClock() {
@@ -24,12 +27,14 @@ function updateClock() {
     const secondElement = document.querySelector('.seconds');
     const periodElement = document.querySelector('.period');
 
-    hourElement.textContent = displayHours;
-    minuteElement.textContent = displayMinutes;
-    secondElement.textContent = displaySeconds;
-    periodElement.textContent = is24HourFormat ? '' : period;
-
-    requestAnimationFrame(updateClock);
+    if (hourElement && minuteElement && secondElement && periodElement) {
+        hourElement.textContent = displayHours;
+        minuteElement.textContent = displayMinutes;
+        secondElement.textContent = displaySeconds;
+        periodElement.textContent = is24HourFormat ? '' : period;
+    }
 }
+
+setInterval(updateClock, 1000);
 
 updateClock();
