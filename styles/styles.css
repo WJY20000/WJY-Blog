@@ -149,7 +149,7 @@ p:not(.markdown-body) {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .period,
@@ -177,7 +177,7 @@ p:not(.markdown-body) {
     align-items: center;
     font-size: 1.3em;
     font-weight: 500;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .calender .month-name {
@@ -193,7 +193,7 @@ p:not(.markdown-body) {
 .format-switch-btn {
     cursor: pointer;
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .format-switch-btn:before {
