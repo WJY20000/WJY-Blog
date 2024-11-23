@@ -149,7 +149,7 @@ p:not(.markdown-body) {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-left: 20px;
+    margin-left: 521px;
 }
 
 .period,
@@ -193,7 +193,7 @@ p:not(.markdown-body) {
 .format-switch-btn {
     cursor: pointer;
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 521px;
 }
 
 .format-switch-btn:before {
