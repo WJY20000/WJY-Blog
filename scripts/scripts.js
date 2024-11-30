@@ -26,7 +26,7 @@ function updateClock() {
     const minuteElement = document.querySelector('.minutes');
     const secondElement = document.querySelector('.seconds');
     const periodElement = document.querySelector('.period');
-    
+   
 
     if (hourElement && minuteElement && secondElement && periodElement && monthElement && dateElement) {
         hourElement.textContent = displayHours;
