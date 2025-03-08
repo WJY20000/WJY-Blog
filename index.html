@@ -51,17 +51,30 @@
             }
         }
     </style>
+    <audio id="bgm" loop>
+    <source src="./assets/bgm.mp3" type="audio/mpeg"> <!-- 需自行准备音频文件 -->
+    </audio>
 </head>
+<div class="welcome-modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <p>Welcome to WJY's Blog！</p>
+  </div>
+</div>
 <body>
     <div class="container">
         <h2>WJY's Blog</h2>
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="https://music.163.com/outchain/player?type=2&id=531295576&auto=1&height=66"></iframe>
+		<div class="music-control">
+         <button onclick="toggleAudio()" class="mute-btn">🎵</button>
+        </div>
         <div class="floating-text">Love of Shanghai will Never Die</div>
     </div>
 
     <article class="markdown-body">
         <p>仰望星空的人<br>
-          终将归于星空</p>
+          终将归于星空<br>
+		  PS:后台已自动播放《爱情转移》，暂停按钮在右下角<br>
+		  I.L.E</p>
     </article>
 
     <div class="digital-clock">
@@ -80,7 +93,6 @@
 			<span class="seconds">00</span>
 		     <span class="dots">        </span>
             <span class="period">AM/PM</span>
-            </div>
         </div>
         </div>
     </div>
@@ -117,7 +129,8 @@
     </article>
 
 <img class="markdown-body" src="https://api.leafone.cn/api/ipsignature?diy=V0pZLUJsb2c=">
-    <p>Version 1.0</p>
+    <p>Version 1.0<br>
+	Ella！❤</p>
 
     <script src="./scripts/scripts.js"></script>
 </body>

@@ -1,3 +1,26 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.querySelector('.welcome-modal');
+  const closeBtn = document.querySelector('.close-modal');
+
+  // 自动显示弹窗
+  setTimeout(() => {
+    modal.style.display = 'block';
+  }, 1000); // 延迟1秒显示
+
+  // 关闭逻辑
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // 点击外部区域关闭
+  window.addEventListener('click', (e) => {
+    if(e.target == modal) {
+      modal.style.display = 'none';
+    }
+  });
+});
+const audio = document.getElementById('bgm');
+let isMuted = false;
 const formatSwitchBtn = document.querySelector('.format-switch-btn');
 const timeDisplay = document.querySelector('.time');
 let is24HourFormat = false;
@@ -40,3 +63,12 @@ function updateClock() {
 setInterval(updateClock, 1000);
 
 updateClock();
+document.addEventListener('click', function initAudio() {
+  audio.play().catch(() => {});
+  document.removeEventListener('click', initAudio);
+});
+function toggleAudio() {
+  isMuted = !isMuted;
+  audio.muted = isMuted;
+  document.querySelector('.mute-btn').textContent = isMuted ? '??' : '??';
+}
