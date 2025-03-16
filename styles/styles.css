@@ -15,6 +15,7 @@ body {
     font-family: Arial, sans-serif;
     background: url('../assets/background.jpg') no-repeat center center fixed;
     background-size: cover;
+    color: #000; /* 设置文字颜色为黑色 */
 }
 
 .container {
@@ -24,6 +25,7 @@ body {
     background: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
+    color: #000; /* 设置文字颜色为黑色 */
 }
 
 h2 {
