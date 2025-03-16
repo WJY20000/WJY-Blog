@@ -13,12 +13,17 @@ body {
     padding: 20px;
     line-height: 1.6;
     font-family: Arial, sans-serif;
+    background: url('../assets/background.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 .container {
     width: 100%;
     margin: 0 auto;
     position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
 }
 
 h2 {
@@ -26,24 +31,29 @@ h2 {
 }
 
 img:not(.markdown-body) {
-	box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-	border-radius: 8px; /* 添加圆角 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 8px; /* 添加圆角 */
     width: 100%;
     max-width: 100%;
     height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+img:not(.markdown-body):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 p:not(.markdown-body) {
-   /*! background-color: #fff; */
-   /*! padding: 20px; */
-   /*! box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-   /*! margin-top: 20px; */
+   /* background-color: #fff; */
+   /* padding: 20px; */
+   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+   /* margin-top: 20px; */
 }
 
 .separator {
     margin: 30px auto;
     border-top: 2px solid #e0e0e0;
-	width: 60%;
+    width: 60%;
     opacity: 0.8;
     padding: 10px;
     font-style: italic;
@@ -53,8 +63,8 @@ p:not(.markdown-body) {
 .floating-text {
     position: absolute;
     right: 40%;
-	transform: translateX(50%);
-	animation: float 3s ease-in-out infinite, colorChange 10s infinite alternate;
+    transform: translateX(50%);
+    animation: float 3s ease-in-out infinite, colorChange 10s infinite alternate;
     font-size: 24px;
     color: red;
     z-index: 1000;
@@ -62,6 +72,7 @@ p:not(.markdown-body) {
     padding: 10px;
     width: auto;
     text-align: center;
+    border-radius: 10px;
 }
 
 @keyframes float {
@@ -80,7 +91,7 @@ p:not(.markdown-body) {
     color: #fff;
     background: #2e2e44;
     width: 90%;
-	max-width: 800px;
+    max-width: 800px;
     padding: 10px 25px;
     box-shadow: 0 5px 25px rgba(14, 21, 37, 0.8);
     border-radius: 10px;
@@ -229,13 +240,6 @@ p:not(.markdown-body) {
     display: block;
 }
 
-img:not(.markdown-body) {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-img:not(.markdown-body):hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
 .music-control {
   position: fixed;
   bottom: 20px;
@@ -258,6 +262,7 @@ img:not(.markdown-body):hover {
   transform: scale(1.1);
   background: #fff;
 }
+
 .welcome-modal {
   display: none;
   position: fixed;
@@ -293,4 +298,24 @@ img:not(.markdown-body):hover {
 
 .close-modal:hover {
   color: #333;
+}
+
+.click-float-text {
+  position: absolute;
+  color: red;
+  font-size: 24px;
+  font-weight: bold;
+  pointer-events: none;
+  animation: floatUp 2s ease-out forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
 }

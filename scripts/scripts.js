@@ -2,36 +2,37 @@ document.addEventListener('DOMContentLoaded', function() {
   const modal = document.querySelector('.welcome-modal');
   const closeBtn = document.querySelector('.close-modal');
 
-  // ×Ô¶¯ÏÔÊ¾µ¯´°
+  // è‡ªåŠ¨æ˜¾ç¤ºæ¨¡æ€æ¡†
   setTimeout(() => {
     modal.style.display = 'block';
-  }, 1000); // ÑÓ³Ù1ÃëÏÔÊ¾
+  }, 1000); // å»¶è¿Ÿ1ç§’æ˜¾ç¤º
 
-  // ¹Ø±ÕÂß¼­
+  // å…³é—­é€»è¾‘
   closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
   });
 
-  // µã»÷Íâ²¿ÇøÓò¹Ø±Õ
+  // ç‚¹å‡»å¤–éƒ¨å…³é—­
   window.addEventListener('click', (e) => {
     if(e.target == modal) {
       modal.style.display = 'none';
     }
   });
 });
+
 const audio = document.getElementById('bgm');
 let isMuted = false;
 const formatSwitchBtn = document.querySelector('.format-switch-btn');
 const timeDisplay = document.querySelector('.time');
 let is24HourFormat = false;
 
-// ³õÊ¼»¯°´Å¥ÎÄ±¾
+// åˆå§‹åŒ–æŒ‰é’®æ–‡æœ¬
 formatSwitchBtn.textContent = is24HourFormat ? '24hr' : '12hr';
 
 formatSwitchBtn.addEventListener('click', function () {
     is24HourFormat = !is24HourFormat;
     formatSwitchBtn.textContent = is24HourFormat ? '24hr' : '12hr';
-    updateClock(); // ÇÐ»»¸ñÊ½ºóÁ¢¼´¸üÐÂÏÔÊ¾
+    updateClock(); // åˆ‡æ¢æ ¼å¼åŽæ›´æ–°æ—¶é’Ÿæ˜¾ç¤º
 });
 
 function updateClock() {
@@ -49,7 +50,6 @@ function updateClock() {
     const minuteElement = document.querySelector('.minutes');
     const secondElement = document.querySelector('.seconds');
     const periodElement = document.querySelector('.period');
-   
 
     if (hourElement && minuteElement && secondElement && periodElement) {
         hourElement.textContent = displayHours;
@@ -59,16 +59,29 @@ function updateClock() {
     }
 }
 
-
 setInterval(updateClock, 1000);
-
 updateClock();
+
 document.addEventListener('click', function initAudio() {
   audio.play().catch(() => {});
   document.removeEventListener('click', initAudio);
 });
+
 function toggleAudio() {
   isMuted = !isMuted;
   audio.muted = isMuted;
-  document.querySelector('.mute-btn').textContent = isMuted ? '??' : '??';
+  document.querySelector('.mute-btn').textContent = isMuted ? 'ðŸ”‡' : 'ðŸŽµ';
 }
+
+document.addEventListener('click', function (e) {
+  const floatText = document.createElement('div');
+  floatText.textContent = 'Ella â¤';
+  floatText.className = 'click-float-text';
+  floatText.style.left = `${e.pageX}px`;
+  floatText.style.top = `${e.pageY}px`;
+  document.body.appendChild(floatText);
+
+  setTimeout(() => {
+    floatText.remove();
+  }, 2000);
+});

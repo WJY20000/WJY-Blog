@@ -16,11 +16,16 @@
             min-height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
+            background: url('./assets/background.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
 
         .container {
             text-align: center; /* 内容居中对齐 */
             margin: 20px 0;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
         }
 
         /* 居中的 markdown body */
@@ -31,6 +36,8 @@
             margin: 20px auto;
             padding: 15px;
             text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
         }
 
         .digital-clock {
@@ -42,6 +49,7 @@
             margin: 20px auto;
             max-width: 100%;
             height: auto;
+            border-radius: 10px;
         }
 
         /* 响应式适配 */
@@ -50,22 +58,59 @@
                 padding: 10px;
             }
         }
+
+        .welcome-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 9999;
+        }
+
+        .modal-content {
+            position: relative;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close-modal:hover {
+            color: #333;
+        }
     </style>
     <audio id="bgm" loop>
     <source src="./assets/bgm.mp3" type="audio/mpeg"> <!-- 需自行准备音频文件 -->
     </audio>
 </head>
-<div class="welcome-modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <p>Welcome to WJY's Blog！</p>
-  </div>
-</div>
 <body>
+    <div class="welcome-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <p>Welcome to WJY's Blog！</p>
+        </div>
+    </div>
     <div class="container">
         <h2>WJY's Blog</h2>
-		<div class="music-control">
-         <button onclick="toggleAudio()" class="mute-btn">🎵</button>
+        <div class="music-control">
+            <button onclick="toggleAudio()" class="mute-btn">🎵</button>
         </div>
         <div class="floating-text">Love of Shanghai will Never Die</div>
     </div>
