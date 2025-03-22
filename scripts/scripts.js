@@ -19,7 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  // 记录每天的访问量
+  recordDailyVisit();
+
   loadComments(); // 页面加载时加载评论
+  displayLastSevenDaysVisits(); // 页面加载时显示最近七天的访问量
 });
 
 const audio = document.getElementById('bgm');
@@ -158,4 +162,34 @@ function loadComments() {
 
         commentsDiv.appendChild(commentDiv);
     });
+}
+
+function recordDailyVisit() {
+  const today = new Date().toISOString().split('T')[0]; // 获取今天的日期
+  const visits = JSON.parse(localStorage.getItem('dailyVisits')) || {};
+
+  if (!visits[today]) {
+    visits[today] = 0;
+  }
+
+  visits[today] += 1;
+  localStorage.setItem('dailyVisits', JSON.stringify(visits));
+}
+
+function displayLastSevenDaysVisits() {
+  const visits = JSON.parse(localStorage.getItem('dailyVisits')) || {};
+  const visitCountDiv = document.getElementById('visit-count');
+  const today = new Date();
+  let visitCountHTML = '<h3>最近七天的访问量</h3><ul>';
+
+  for (let i = 6; i >= 0; i--) {
+    const date = new Date(today);
+    date.setDate(today.getDate() - i);
+    const dateString = date.toISOString().split('T')[0];
+    const count = visits[dateString] || 0;
+    visitCountHTML += `<li>${dateString}: ${count}</li>`;
+  }
+
+  visitCountHTML += '</ul>';
+  visitCountDiv.innerHTML = visitCountHTML;
 }

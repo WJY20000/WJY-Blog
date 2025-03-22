@@ -377,3 +377,9 @@ p:not(.markdown-body) {
     font-size: smaller;
     color: #666;
 }
+
+.visit-count {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
