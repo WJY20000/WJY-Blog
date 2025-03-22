@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
       modal.style.display = 'none';
     }
   });
+
+  loadComments(); // 页面加载时加载评论
 });
 
 const audio = document.getElementById('bgm');
@@ -85,3 +87,75 @@ document.addEventListener('click', function (e) {
     floatText.remove();
   }, 2000);
 });
+
+function submitComment() {
+    const nickname = document.getElementById('nickname').value;
+    const comment = document.getElementById('comment').value;
+    const commentsDiv = document.getElementById('comments');
+
+    if (nickname && comment) {
+        const commentDiv = document.createElement('div');
+        commentDiv.className = 'comment';
+
+        const nicknameDiv = document.createElement('div');
+        nicknameDiv.className = 'nickname';
+        nicknameDiv.textContent = nickname;
+
+        const timeDiv = document.createElement('div');
+        timeDiv.className = 'time';
+        const now = new Date();
+        timeDiv.textContent = now.toLocaleString();
+
+        const commentTextDiv = document.createElement('div');
+        commentTextDiv.className = 'comment-text';
+        commentTextDiv.textContent = comment;
+
+        commentDiv.appendChild(nicknameDiv);
+        commentDiv.appendChild(timeDiv);
+        commentDiv.appendChild(commentTextDiv);
+
+        commentsDiv.appendChild(commentDiv);
+
+        saveComment(nickname, comment, now.toLocaleString()); // 保存评论到本地存储
+
+        // 清空输入框
+        document.getElementById('nickname').value = '';
+        document.getElementById('comment').value = '';
+    } else {
+        alert('请输入昵称和评论内容');
+    }
+}
+
+function saveComment(nickname, comment, time) {
+    const comments = JSON.parse(localStorage.getItem('comments')) || [];
+    comments.push({ nickname, comment, time });
+    localStorage.setItem('comments', JSON.stringify(comments));
+}
+
+function loadComments() {
+    const comments = JSON.parse(localStorage.getItem('comments')) || [];
+    const commentsDiv = document.getElementById('comments');
+
+    comments.forEach(({ nickname, comment, time }) => {
+        const commentDiv = document.createElement('div');
+        commentDiv.className = 'comment';
+
+        const nicknameDiv = document.createElement('div');
+        nicknameDiv.className = 'nickname';
+        nicknameDiv.textContent = nickname;
+
+        const timeDiv = document.createElement('div');
+        timeDiv.className = 'time';
+        timeDiv.textContent = time;
+
+        const commentTextDiv = document.createElement('div');
+        commentTextDiv.className = 'comment-text';
+        commentTextDiv.textContent = comment;
+
+        commentDiv.appendChild(nicknameDiv);
+        commentDiv.appendChild(timeDiv);
+        commentDiv.appendChild(commentTextDiv);
+
+        commentsDiv.appendChild(commentDiv);
+    });
+}
