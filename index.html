@@ -20,10 +20,6 @@
             background-size: cover;
         }
 
-        body, p, h2, .markdown-body {
-            color: #000; /* 设置文字颜色为黑色 */
-        }
-
         .container {
             text-align: center; /* 内容居中对齐 */
             margin: 20px 0;
@@ -122,8 +118,10 @@
     <article class="markdown-body">
         <p>仰望星空的人<br>
           终将归于星空<br>
-		  PS:后台已自动播放《爱情转移》，暂停按钮在右下角<br>
-		  I.L.E</p>
+		  PS:后台已自动播放《泡沫》，暂停按钮在右下角<br>
+		  I.L.E
+          全都是泡沫…………
+          前路何方？</p>
     </article>
 
     <div class="digital-clock">
@@ -177,29 +175,10 @@
         </script>
     </article>
 
-    <!-- 评论框 -->
-    <div class="comment-section">
-        <h3>发表评论</h3>
-        <input type="text" id="nickname" placeholder="请输入昵称">
-        <textarea id="comment" placeholder="请输入评论"></textarea>
-        <button onclick="submitComment()">提交</button>
-        <div id="comments"></div>
-        <div id="visit-count" class="visit-count"></div> <!-- 将访问量显示移到这里 -->
-    </div>
-
-    <img class="markdown-body" src="https://api.leafone.cn/api/ipsignature?diy=V0pZLUJsb2c=">
+<img class="markdown-body" src="https://api.leafone.cn/api/ipsignature?diy=V0pZLUJsb2c=">
     <p>Version 1.0<br>
 	Ella！❤</p>
 
-    <script>
-        // 显示今天的访问量
-        document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date().toISOString().split('T')[0];
-            const visits = JSON.parse(localStorage.getItem('dailyVisits')) || {};
-            const visitCount = visits[today] || 0;
-            document.getElementById('visit-count').textContent = `今日访问量: ${visitCount}`;
-        });
-    </script>
     <script src="./scripts/scripts.js"></script>
 </body>
 </html>

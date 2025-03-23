@@ -9,7 +9,6 @@
   --base-text-weight-semibold: 600;
   --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
   --fgColor-accent: Highlight;
-  color: #000; /* 设置文字颜色为黑色 */
 }
 @media (prefers-color-scheme: dark) {
   .markdown-body, [data-theme="dark"] {

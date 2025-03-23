@@ -15,7 +15,6 @@ body {
     font-family: Arial, sans-serif;
     background: url('../assets/background.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: #000; /* 设置文字颜色为黑色 */
 }
 
 .container {
@@ -25,7 +24,6 @@ body {
     background: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
-    color: #000; /* 设置文字颜色为黑色 */
 }
 
 h2 {
@@ -320,66 +318,4 @@ p:not(.markdown-body) {
     opacity: 0;
     transform: translateY(-50px);
   }
-}
-
-.comment-section {
-    margin: 20px auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    max-width: 600px;
-    text-align: center;
-}
-
-.comment-section h3 {
-    margin-bottom: 10px;
-}
-
-.comment-section input,
-.comment-section textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.comment-section button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.comment-section button:hover {
-    background-color: #0056b3;
-}
-
-#comments {
-    margin-top: 20px;
-    text-align: left;
-}
-
-.comment {
-    margin-bottom: 10px;
-    padding: 10px;
-    background: #f9f9f9;
-    border-radius: 5px;
-}
-
-.comment .nickname {
-    font-weight: bold;
-}
-
-.comment .time {
-    font-size: smaller;
-    color: #666;
-}
-
-.visit-count {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #333;
 }
